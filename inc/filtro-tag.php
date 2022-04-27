@@ -27,7 +27,7 @@
       foreach ($tagArray as $key => $value) {
         
         ?>
-        <a href="<?php echo home_url('/');?>tag/?tag=<?php echo $value ?>" class="filter me-awe-11 mb-awe-11" data-cad="simao-bacamarte"><?php echo $value ?></a>
+        <span disabled href="" class="filter me-awe-11 mb-awe-11" data-cad="simao-bacamarte"><?php echo $value ?><span>
           
         <?php
         if($contador >= 8) {

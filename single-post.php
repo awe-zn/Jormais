@@ -171,7 +171,7 @@ foreach($categories as $category){
         offset-lg-2">
 
         <div class="px-2 px-sm-0">
-          <span class="text-prata fz-16 lh-160">filtre por tags</span>
+          <span class="text-prata fz-16 lh-160">tags</span>
         </div>
 
         <div class="
@@ -221,7 +221,7 @@ foreach($categories as $category){
                    ?> 
           <?php if ( $the_query3->have_posts() ) : while ( $the_query3->have_posts() ) : $the_query3->the_post(); ?> 
           <!--Post relacionado com a notícia-->
-          <a href="" class="text-decoration-none">
+          <a href="<?php the_permalink(); ?>" class="text-decoration-none">
             <div class="post-relacionado mb-awe-24">
               <!--Autor do post e data de publicação-->
               <div class="pt-awe-16">
@@ -235,7 +235,7 @@ foreach($categories as $category){
 
               <!--Título da publicação-->
               <div class="pt-awe-11">
-                <h4 class="text-aco fz-21 fw-bold"><?php the_title(); ?></h4>
+                <h4 class="text-primary-light fz-21 fw-bold"><?php the_title(); ?></h4>
               </div>
             </div>
           </a>

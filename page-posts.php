@@ -34,24 +34,8 @@
 
             <!--Área de pesquisa-->
             <div class="col-12 mt-awe-24 mt-sm-0">
-                <div class="d-flex justify-content-between flex-wrap mt-awe-11 align-items-end">
-                    <span class="fz-16 fw-light text-prata lh-160">filtre ou pesquise</span>
-                    <div class="
-                        input-posts 
-                        border
-                        border-2
-                        border-gray
-                        rounded-1 
-                        ps-awe-48 pe-awe-24">
-                        <form class="d-flex align-items-center" action="<?php echo home_url('/');?>posts/" method="GET">
-                        <input class="form-control bg-transparent rounded-0 border-0 p-0 text-prata fz-18" type="text"
-                            placeholder="sua pesquisa" name="c">
-                        <button class="btn" type="submit">
-                            <img src="<?php echo get_template_directory_uri();?>/dist/image/icons/search-posts.svg" alt="">
-                        </button>
-                        </form>
-                    </div>
-                </div>
+            <?php dynamic_sidebar('busca');?>
+                
             </div>
 
             <!--Subtitulo da pagina-->
@@ -132,9 +116,9 @@
                 text-align:center;
             }
             .pagination span{
-                border: 1px solid #E62121;
+                border: 1px solid #0B8D85;
                 cursor: pointer;
-                color:#E62121!important;
+                color:#0B8D85!important;
             }
 
         </style>

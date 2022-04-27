@@ -31,7 +31,7 @@
         ?>
         <a href="<?php echo home_url('/');?>categoria/?cat=<?php echo $key ?>" class="btn rounded-0 filter-2 me-awe-16 mb-awe-16 text-uppercase">
         <?php echo $key?>
-        <span class="bg-neve text-aco fz-12 fw-bold lh-160">
+        <span class="bg-neve fz-12 fw-bold lh-160">
           <?php echo $value ?>
         </span>
       </a>
