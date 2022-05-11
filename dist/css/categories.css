@@ -1,0 +1,71 @@
+/*
+
+cat -> categoria
+
+*/
+
+.cat__cidades {
+  background: #212529;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.cat__ciencia-e-tecnologia {
+  background: #3b5bdb;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.cat__cultura {
+  background: #d6336c;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.cat__direitos-humanos {
+  background: #ae3ec9;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.cat__educacao {
+  background: #f03e3e;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cat__entretenimento {
+  background: #ff922b;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cat__esporte {
+  background: #2b8a3e;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cat__meio-ambiente {
+  background: #74b816;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cat__oportunidades {
+  background: #fcc419;
+  color: #000000;
+  font-weight: 500;
+}
+
+.cat__politica {
+  background: #664200;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.cat__saude {
+  background: #4dabf7;
+  color: #000000;
+  font-weight: 500;
+}

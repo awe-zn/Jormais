@@ -1,145 +1,104 @@
 <?php
 // Template Name: posts
 ?>
-<?php get_header()?>
+<?php get_header() ?>
 
-    <!--Navegação breadcrumb-->
-    <div class="container ff-inter fz-14 fz-sm-16 lh-140 py-awe-32">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="<?php echo home_url('/');?>" class="text-prata-2">Home</a></li>
-                        <li class="breadcrumb-item text-truncate active" aria-current="page">Posts</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+<div class="container fz-16 py-awe-40">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 d-flex gap-1">
+          <li class="breadcrumb-item">
+            <a href="<?php echo home_url('/'); ?>" class="link-gray-2">Home</a>
+          </li>
+          <li class="breadcrumb-item text-truncate active" aria-current="page">
+            Posts
+          </li>
+        </ol>
+      </nav>
     </div>
-    <!--/Navegação breadcrumb-->
+  </div>
+</div>
 
+<main class="container">
+  <h1 class="text-dark-1 fz-26 fz-md-32 fw-extra-bold title-1 m-0">
+    Você está vendo os posts mais recentes
+  </h1>
 
+  <div class="mt-awe-32 mb-awe-32 mb-md-2 mt-md-awe-12 row align-items-end gap-3 gap-md-0">
+    <div class="col-12 col-md-6">filtre ou pesquise</div>
+    <div class="col-12 col-md-6 d-flex justify-content-md-end">
+      <?php dynamic_sidebar('busca');?>
+    </div>
+  </div>
 
-    <main class="container">
-        <div class="row justify-content-center">
+  <h2 class="text-gray-1 fz-21 fz-md-26 fw-light m-0">
+    Categorias com mais visualizações
+  </h2>
 
-            <!--Titulo da página-->
-            <div class="col-12">
-                <div class="box-title position-relative pb-awe-24">
-                    <h1 class="fz-44 lh-140 fw-extra-bold" id="title-posts">
-                        Você está vendo os posts mais recentes
-                    </h1>
-                </div>
-            </div>
+  <div class="categories pt-awe-24">
+    <?php if (array_key_exists('c', $_GET)) { ?>
+      <?php include(TEMPLATEPATH . "/inc/search-categoria.php"); ?>
+    <?php } else { ?>
+      <?php include(TEMPLATEPATH . "/inc/filtro-categorias.php"); ?>
+    <?php } ?>
+  </div>
 
-            <!--Área de pesquisa-->
-            <div class="col-12 mt-awe-24 mt-sm-0">
-            <?php dynamic_sidebar('busca');?>
-                
-            </div>
+  <div class="mt-awe-64 row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <h2 class="text-gray-1 fz-21 fz-md-26 fw-light mb-awe-24">
+        Últimos posts
+      </h2>
+      <?php
+        $args3 = array(
+          'post_type' => 'post',
+          'posts_per_page' => '15',
+          'paged'    => get_query_var('paged') ? get_query_var('paged') : 1
+        );
+        $the_query = new WP_Query($args3);  
+      ?>
+      <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+        <a href="<?php the_permalink(); ?>" class="d-block text-decoration-none border-top border-light-4 pt-awe-24">
+          <div class="text-gray-2 fz-14 mb-awe-12">
+            por 
+            <span class="text-gray-2 fw-bold">
+              <?php the_author(); ?>
+            </span>,
+            publicado em 
+            <span class="text-gray-3 fw-medium fst-italic">
+              <?php echo get_the_date('d.M.y'); ?>
+            </span>
+          </div>
+          <h3 class="text-dark-1 fw-bold lh-160 fz-16 fz-md-21 text-decoration-underline-hover">
+            <?php the_title(); ?>
+          </h3>
+        </a>
+      <?php endwhile;
+      else : endif; ?>
+    </div>
+  </div>
 
-            <!--Subtitulo da pagina-->
-            <div class="col-12 ">
-                <div class="pt-awe-11 px-lg-0 pb-awe-48">
-                    <div class="">
-                        <h3 class="fz-26 fw-light text-gray">
-                            Categorias com mais visualizações
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
-            <!--Filtro por categoria-->
-            <div class="col-12">
-                <div class="d-flex flex-wrap pb-awe-64">
-                <?php if(array_key_exists('c', $_GET)) {?>
-                        <?php include(TEMPLATEPATH . "/inc/search-categoria.php");?>
-                    <?php } else {?>
-                <?php include(TEMPLATEPATH . "/inc/filtro-categorias.php");?>
-                <?php }?>
-                </div>
-            </div>
-
-            <!--Ultimos posts-->
-            <div class="col-12 col-md-10 col-lg-8 px-xl-0">
-                <div class="mb-awe-24">
-                    <h3 class="fw-light fz-26 text-gray lh-160">Ultimos posts</h3>
-                </div>
-
-                <?php
-                      
-                       $args3 = array (
-                         'post_type' => 'post',
-                         'posts_per_page'=>'15',
-                                'paged'    => get_query_var('paged') ? get_query_var('paged') : 1
-                     );
-                       $the_query = new WP_Query ( $args3 );
-                   ?>   
-<div class="col-12 col-md-10 col-lg-8 px-lg-0 pt-awe-32">
-<?php if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-<!--Post-->
-<a href="<?php the_permalink(); ?>" class="text-decoration-none d-block border-top border-1 border-neve-extra-dark">
-                    <div class="post-recente mb-awe-24">
-                        <!--Autor do post e data de publicação-->
-                        <div class="pt-awe-16">
-                            <span class="fst-italic text-prata-2 fw-medium lh-160 fz-14 d-flex flex-wrap">
-                                por
-                                <span class="fw-bold text-decoration-underline fst-normal mx-2"><?php the_author();?></span>
-                                foi publicado em
-                                <span class="fw-medium mx-2"><?php echo get_the_date('d.M.y'); ?></span>
-                            </span>
-                        </div>
-
-                        <!--Título da publicação-->
-                        <div class="pt-awe-11">
-                            <h4 class="text-aco fz-21 fw-bold"><?php the_title(); ?></h4>
-                        </div>
-                    </div>
-                </a>
-    <?php endwhile; else: endif; ?>
-            </div>
-        </div>
-    </main>
-
-    <!--Paginação-->
-    <div class="container mt-awe-24 px-xl-0">
-
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8 border-top border-1 border-neve-extra-dark pt-awe-32">
-            <style>
-            .pagination .page-numbers{
-                border-radius: 50%;
-                width: 39px;
-                height: 39px;
-                color: #273444;
-                text-decoration: none;
-                text-align:center;
-            }
-            .pagination span{
-                border: 1px solid #0B8D85;
-                cursor: pointer;
-                color:#0B8D85!important;
-            }
-
-        </style>
+  <div class="row justify-content-center mt-awe-32">
+    <div class="col-12 col-md-10 col-lg-8">
+      <div class="border-top border-light-4 pt-awe-56">
         <nav>
-            <ul class="pagination fz-21 lh-160 py-awe-24">
-            <?php 
-        echo paginate_links( array(
-            'base' => str_replace( 999999999, '%#%', get_pagenum_link( 999999999 ) ),
-            'format' => '?paged=%#%',
-            'current' => max( 1, get_query_var('paged') ),
-            'total' => $the_query->max_num_pages,
-            'prev_next' => false,
-            'show_all' => false,
-            'mid_size' => 2,
-            'end_size' => 1
-        ) );?>
-            </ul>
+          <ul class="pagination fz-21 lh-160 py-awe-24">
+            <?php
+            echo paginate_links(array(
+              'base' => str_replace(999999999, '%#%', get_pagenum_link(999999999)),
+              'format' => '?paged=%#%',
+              'current' => max(1, get_query_var('paged')),
+              'total' => $the_query->max_num_pages,
+              'prev_next' => false,
+              'show_all' => false,
+              'mid_size' => 2,
+              'end_size' => 1
+            )); ?>
+          </ul>
         </nav>
-            </div>
-        </div>
-
+      </div>
     </div>
+  </div>
+</main>
 
-    <?php get_footer()?>
+<?php get_footer() ?>

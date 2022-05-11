@@ -2,12 +2,7 @@
 
 <main class="container pt-awe-40">
   <h1 class="text-dark-1 fz-26 fz-md-32 fw-extra-bold title-1 m-0">
-    <?php
-    if (is_search()) {
-      $total_results = $wp_query->found_posts;
-      echo sprintf(__('%s resultado(s) para "%s"', 'HD-WP'), $total_results, get_search_query());
-    }
-    ?>
+    Filtragem de posts pelo autor "<?php the_author(); ?>"
   </h1>
 
   <div class="mt-awe-32 mb-awe-32 mb-md-2 mt-md-awe-12 row justify-content-end align-items-end gap-3 gap-md-0">
@@ -18,28 +13,33 @@
 
   <div class="mt-awe-64 row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8">
-      <?php if (have_posts()) {?>
-        <?php if (have_posts()) :
-          while (have_posts()) : the_post(); ?>
-            <a href="<?php the_permalink(); ?>" class="d-block text-decoration-none border-top border-light-4 pt-awe-24">
-              <div class="text-gray-2 fz-14 mb-awe-12">
-                por
-                <span class="text-gray-2 fw-bold">
-                  <?php the_author(); ?>
-                </span>,
-                publicado em
-                <span class="text-gray-3 fw-medium fst-italic">
-                  <?php echo get_the_date('d.M.y'); ?>
-                </span>
-              </div>
-              <h3 class="text-dark-1 fw-bold lh-160 fz-16 fz-md-21 text-decoration-underline-hover">
-                <?php the_title(); ?>
-              </h3>
-            </a>
+      <h2 class="text-gray-1 fz-21 fz-md-26 fw-light mb-awe-24">
+        Últimos posts de
+        <span class="fw-bold">
+          "<?php the_author(); ?>"
+        </span>
+      </h2>
+      <?php if (have_posts()) :
+        while (have_posts()) : the_post(); ?>
+          <a href="<?php the_permalink(); ?>" class="d-block text-decoration-none border-top border-light-4 pt-awe-24">
+            <div class="text-gray-2 fz-14 mb-awe-12">
+              por
+              <span class="text-gray-2 fw-bold">
+                <?php the_author(); ?>
+              </span>,
+              publicado em
+              <span class="text-gray-3 fw-medium fst-italic">
+                <?php echo get_the_date('d.M.y'); ?>
+              </span>
+            </div>
+            <h3 class="text-dark-1 fw-bold lh-160 fz-16 fz-md-21 text-decoration-underline-hover">
+              <?php the_title(); ?>
+            </h3>
+          </a>
       <?php
-          endwhile;
-        else : endif;
-      } ?>
+        endwhile;
+      else : endif;
+      ?>
     </div>
   </div>
 

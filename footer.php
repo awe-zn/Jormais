@@ -1,37 +1,31 @@
-<footer class="container-fluid pt-5 mt-awe-112">
-    <div class="container">
-      <div class="border-top border-gray-2">
-        <div class="col-12 row pt-awe-32">
-          <div class="">
-            <div class="box-logo d-flex">
-              <a href="#"><img class="img-fluid pe-awe-24" src="<?php echo get_template_directory_uri();?>/dist/img/icons/twitter.svg" alt="logo twitter"></a>
-              <a href="#"><img class="img-fluid pe-awe-24" src="<?php echo get_template_directory_uri();?>/dist/img/icons/facebook.svg" alt="logo facebook"></a>
-              <a href="#"><img class="img-fluid" src="<?php echo get_template_directory_uri();?>/dist/img/icons/instagram.svg" alt="logo instagram"></a>
-            </div>
-            <div class="pt-4 pb-3">
-              <div class="">
-                <span class="text-fumaca-extra-dark">Jormais - 2022 / Desenvolvido por <strong class="">
-                    AWE</strong></span>
-              </div>
-              <div class="d-flex justify-content-end ">
-                <a href="#" class="me-awe-16 fw-regular text-prata text-decoration-none"><span class="">Cookies</span>
-                </a>
-                <a href="#" class="me-awe-16 fw-regular text-prata text-decoration-none"><span class="">Contact
-                    Sales</span> </a>
-                <a href="#" class="me-awe-16 fw-regular text-prata text-decoration-none"><span class="">Security</span>
-                </a>
-                <a href="#" class="me-awe-16 fw-regular text-prata text-decoration-none"><span class="">Terms of
-                    Service</span> </a>
-                <a href="#" class="me-awe-16 fw-regular text-prata text-decoration-none"><span class="">Privacy
-                    Statement</span> </a>
-              </div>
-            </div>
-          </div>
-
+  <footer class="container mt-awe-56 pb-awe-80">
+    <div class="pt-awe-32 border-top border-1 border-light-silver">
+      <div class="d-flex gap-awe-24">
+        <a href="https://twitter.com/Jormais_portal" target="_blank" title="twitter">
+          <img src="<?php echo get_template_directory_uri(); ?>/dist/img/icons/twitter.svg" alt="link do twitter">
+        </a>
+        <a href="https://www.instagram.com/jor.mais/" target="_blank" title="instagram">
+          <img src="<?php echo get_template_directory_uri(); ?>/dist/img/icons/instagram.svg" alt="link do instagram">
+        </a>
+      </div>
+      <div class="row pt-awe-24">
+        <div class="col-12 col-md-6 col-lg-5">
+          <p class="text-old-silver fz-16">
+            Jormais - 2022 / Desenvolvido por
+            <a href="https://agenciaweb.ifrn.edu.br/" target="_blank" class="fw-bold text-old-silver text-decoration-none" title="Agência Web Escolar">
+              AWE
+            </a>
+          </p>
+        </div>
+        <div class="col-12 col-md-5 col-lg-7">
+          <nav class="d-flex gap-awe-16 gap-awe-md-24 justify-content-end flex-wrap flex-column flex-sm-row">
+            <a href="mailto:portaljormais@gmail.com" class="text-old-silver text-decoration-none">
+              portaljormais@gmail.com
+            </a>
+          </nav>
         </div>
       </div>
     </div>
-
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -1,13 +1,17 @@
 
 <?php get_header()?>
-
-        <section class="content pagina-contato">
-            <article class="container l-8 font-4">
-                <h1 class="font fjalla c-title">
-                    Erro 404!
-                </h1>
-
-                <h2>A página acessada não foi encontrada.</h2>
-            </article>
-        </section>
+<style>
+  body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+</style>
+  <section class="container d-flex flex-column align-items-center py-awe-32">
+    <h1 class="">
+        Erro 404!
+    </h1>
+    <h2>A página acessada não foi encontrada.</h2>
+  </section>
 <?php get_footer()?>
