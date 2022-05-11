@@ -33,10 +33,12 @@
         <div class="col-12 col-md-10 col-lg-8 mt-awe-40 mt-md-awe-80">
           <div class="text-gray-1 fz-16">
             por
-            <a href="<?php echo home_url('/'); ?>author/<?php the_author(); ?>" class="text-gray-3 fw-bold">
-              <?php the_author(); ?>
-            </a>,
-            
+            <?php 
+            add_filter( 'the_author_posts_link', function( $link ) {
+              return str_replace('rel="author"', 'rel="author" class="text-gray-3 fw-bold"', $link);
+            });
+            the_author_posts_link();
+            ?>,
             publicado em
             <span class="text-gray-3 fw-medium fst-italic">
               <?php echo get_the_date('d.M.y'); ?>
