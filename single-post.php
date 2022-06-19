@@ -33,8 +33,8 @@
         <div class="col-12 col-md-10 col-lg-8 mt-awe-40 mt-md-awe-80">
           <div class="text-gray-1 fz-16">
             por
-            <?php 
-            add_filter( 'the_author_posts_link', function( $link ) {
+            <?php
+            add_filter('the_author_posts_link', function ($link) {
               return str_replace('rel="author"', 'rel="author" class="text-gray-3 fw-bold"', $link);
             });
             the_author_posts_link();

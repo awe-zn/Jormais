@@ -15,6 +15,7 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/style.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/style-update.css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/dist/css/categories.css">
 </head>
 
