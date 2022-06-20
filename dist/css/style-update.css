@@ -61,6 +61,7 @@
   font-size: 34px;
   font-weight: 700;
   text-align: center;
+  text-transform: uppercase;
 }
 
 /* web storys */
@@ -85,7 +86,67 @@
   font-size: 22px;
   color: #ffffff;
   width: 100%;
-  padding: 0 8px; 
+  padding: 0 8px;
+}
+
+/* revista tabu */
+
+.magazine {
+  width: 183px;
+}
+
+.magazine__image {
+  width: 100%;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.25));
+}
+
+/* as + do jormais */
+
+.best-posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 124px);
+  grid-column-gap: 15px;
+  grid-row-gap: 13px;
+}
+
+.best-posts__post {
+  background: #eff2f7;
+  padding: 8px 20px;
+  text-decoration: none;
+  transition: all 100ms ease-in-out;
+}
+
+.best-posts__post:hover {
+  background: #0b8d85;
+  color: #ffffff;
+}
+
+.best-posts__post .best-posts__title {
+  color: #2e2b26;
+}
+
+.best-posts__post .best-posts__author {
+  color: #8d9aa6;
+}
+
+.best-posts__post .best-posts__date {
+  color: #c3cfd9;
+}
+
+.best-posts__post:hover .best-posts__title,
+.best-posts__post:hover .best-posts__author,
+.best-posts__post:hover .best-posts__date {
+  color: #ffffff;
+}
+
+@media (max-width: 767.98px) {
+  .best-posts {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 16px;
+  }
 }
 
 @media (max-width: 991.98px) {

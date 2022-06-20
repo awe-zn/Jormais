@@ -1,5 +1,7 @@
 <div class="pt-awe-16">
-  <h2 class="text-teal fz-28">WEBSTORIES</h2>
+  <h2 class="text-teal fz-28 mb-awe-24">
+    WEBSTORIES
+  </h2>
 
   <div class="web-stories d-flex gap-awe-16">
     <?php
@@ -28,5 +30,4 @@
     </a>
   </div>
 
-</div>
 </div>

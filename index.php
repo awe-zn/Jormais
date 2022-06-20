@@ -10,10 +10,10 @@
 <!-- Especial Multimídia -->
 <?php include(TEMPLATEPATH . "/inc/multimedia-special.php"); ?>
 
-<section class="container my-awe-56">
+<section class="container mt-awe-56 mb-awe-16">
   <hr style="background: #0B8D85;">
-  
-  <div class="row justify-content-center justify-content-md-start">
+
+  <div class="row gap-awe-32 gap-md-0">
     <div class="col-12 col-sm-10 col-md-6">
       <!-- Especial Multimídia -->
       <?php include(TEMPLATEPATH . "/inc/web-stories.php"); ?>
@@ -23,8 +23,21 @@
       <?php include(TEMPLATEPATH . "/inc/videos.php"); ?>
     </div>
   </div>
-  
-  <hr style="background: #0B8D85;">
+
+  <hr class="mt-awe-56" style="background: #0B8D85;">
+</section>
+
+<section class="container mb-awe-80">
+  <div class="row justify-content-center justify-content-md-start gap-awe-32 gap-xxl-0">
+    <div class="col-12 col-lg-12 col-xxl-8">
+      <!-- As + do JorMais -->
+      <?php include(TEMPLATEPATH . "/inc/the_best_posts.php"); ?>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <!-- Revista tabu -->
+      <?php include(TEMPLATEPATH . "/inc/magazine.php"); ?>
+    </div>
+  </div>
 </section>
 
 <?php get_footer() ?>
