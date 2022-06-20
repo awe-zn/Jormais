@@ -1,5 +1,5 @@
-<section class="container mt-awe-80">
-  <hr style="background: #0B8D85;">
+<section class="container mt-awe-80 mb-awe-56">
+  <hr class="mb-awe-56" style="background: #0B8D85;">
 
   <h3 class="text-teal fz-26 fz-md-40 fw-bold m-0">
     Últimas notícias
@@ -44,11 +44,11 @@
     else : endif; ?>
   </div>
 
-  <div class="d-flex justify-content-end pt-awe-32">
+  <div class="d-flex justify-content-end pt-awe-56">
     <a href="<?php echo home_url('/posts'); ?>" class="button-1">
       Veja mais
     </a>
   </div>
 
-  <hr style="background: #0B8D85;">
+  <hr class="mt-awe-16" style="background: #0B8D85;">
 </section>

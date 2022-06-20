@@ -1,3 +1,9 @@
+/* font */
+.fz-28 {
+  font-size: 28px;
+}
+
+/* buttons */
 .button-1 {
   background: #ffffff;
   color: #0b8d85;
@@ -13,6 +19,7 @@
   background: #248e98;
 }
 
+/* posts */
 .especial-multimidia {
   position: relative;
   display: flex;
@@ -54,6 +61,31 @@
   font-size: 34px;
   font-weight: 700;
   text-align: center;
+}
+
+/* web storys */
+
+.web-story {
+  width: 238px;
+  text-decoration: none;
+  position: relative;
+}
+
+.web-story__image {
+  width: 100%;
+  border-radius: 10px;
+  filter: brightness(70%);
+  -webkit-filter: brightness(70%);
+  -moz-filter: brightness(70%);
+}
+
+.web-story__title {
+  position: absolute;
+  bottom: 8px;
+  font-size: 22px;
+  color: #ffffff;
+  width: 100%;
+  padding: 0 8px; 
 }
 
 @media (max-width: 991.98px) {
