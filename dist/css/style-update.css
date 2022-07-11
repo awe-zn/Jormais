@@ -19,6 +19,12 @@
   background: #248e98;
 }
 
+/* podcasts */
+
+.podcast {
+  width: 100%;
+}
+
 /* posts */
 .especial-multimidia {
   position: relative;
@@ -150,6 +156,10 @@
 }
 
 @media (max-width: 991.98px) {
+  .podcast p iframe {
+    height: 160px;
+  }
+  
   .especial-multimidia {
     display: flex;
     flex-direction: column;

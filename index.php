@@ -7,6 +7,22 @@
 <!-- Últimas notícias -->
 <?php include(TEMPLATEPATH . "/inc/latest-posts.php"); ?>
 
+<section class="container mt-awe-56 mb-awe-16">
+
+  <div class="row gap-awe-32 gap-md-0">
+    <div class="col-12 col-md-6">
+      <!-- Podcasts -->
+      <?php include(TEMPLATEPATH . "/inc/podcasts.php"); ?>
+    </div>
+    <div class="col-6 col-md-6">
+      <!-- Coluna livre -->
+      <?php include(TEMPLATEPATH . "/inc/coluna-livre.php"); ?>
+    </div>
+  </div>
+
+  <hr class="mt-awe-56" style="background: #0B8D85;">
+</section>
+
 <!-- Especial Multimídia -->
 <?php include(TEMPLATEPATH . "/inc/multimedia-special.php"); ?>
 
@@ -15,11 +31,11 @@
 
   <div class="row gap-awe-32 gap-md-0">
     <div class="col-12 col-sm-10 col-md-6">
-      <!-- Especial Multimídia -->
+      <!-- Web stories -->
       <?php include(TEMPLATEPATH . "/inc/web-stories.php"); ?>
     </div>
     <div class="col-6 col-sm-10 col-md-6">
-      <!-- Especial Multimídia -->
+      <!-- Vídeos -->
       <?php include(TEMPLATEPATH . "/inc/videos.php"); ?>
     </div>
   </div>
