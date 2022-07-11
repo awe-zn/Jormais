@@ -40,7 +40,7 @@
         $active = '';
       }
       ?>
-      <a href="<?php get_term_link($name); ?>" class="categories__item <?php echo $active; ?>">
+      <a href="<?php echo home_url('/');?>categoria_podcast/<?php echo $value->slug; ?>" class="categories__item <?php echo $active; ?>">
         <?php
         echo $value->name;
         ?>

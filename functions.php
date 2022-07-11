@@ -31,36 +31,3 @@ register_sidebar(
 		'after_title' => '',
 	)
 );
-
-function create_taxonomy_group()
-{
-
-	register_taxonomy(
-		'categoria_podcast',
-		array('podcast'),
-		array(
-			'label' => 'Categorias',
-			'rewrite' => array('slug' => 'categoria_podcast'),
-			'hierarchical' => true,
-		)
-	);
-}
-
-add_action('init', 'create_taxonomy_group');
-
-
-add_action('init', 'register_post_type_podcast');
-function register_post_type_podcast()
-{
-	$labels = array(
-		'name' => 'Podcasts',
-		'singular_name' => 'Podcast',
-	);
-	$args = array(
-		'labels' => $labels,
-		'public' => true,
-		'taxonomies' => array('categoria_podcast')
-	);
-	// Register the movie post type with all the information contained in the $arguments array
-	register_post_type('podcast', $args);
-}
