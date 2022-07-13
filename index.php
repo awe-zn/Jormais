@@ -30,11 +30,11 @@
   <hr style="background: #0B8D85;">
 
   <div class="row gap-awe-32 gap-md-0">
-    <div class="col-12 col-sm-10 col-md-6">
+    <div class="col-12 col-md-6">
       <!-- Web stories -->
       <?php include(TEMPLATEPATH . "/inc/web-stories.php"); ?>
     </div>
-    <div class="col-6 col-sm-10 col-md-6">
+    <div class="col-12 col-md-6">
       <!-- Vídeos -->
       <?php include(TEMPLATEPATH . "/inc/videos.php"); ?>
     </div>

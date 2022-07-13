@@ -1,5 +1,5 @@
 <?php
-// Template Name: podcasts
+// Template Name: especiais
 ?>
 <?php get_header() ?>
 
@@ -12,7 +12,7 @@
             <a href="<?php echo home_url('/'); ?>" class="link-gray-2">Home</a>
           </li>
           <li class="breadcrumb-item text-truncate active" aria-current="page">
-            Podcasts
+            Especiais
           </li>
         </ol>
       </nav>
@@ -23,7 +23,7 @@
 <main class="container">
 
   <h1 class="text-dark-1 fz-26 fz-md-32 fw-extra-bold title-1 m-0">
-    Podcasts
+    Especiais
   </h1>
 
   <div class="mt-awe-32 mb-awe-32 mb-md-2 mt-md-awe-12 row align-items-end gap-3 gap-md-0">
@@ -35,7 +35,7 @@
 
   <div class="categories pt-awe-24">
     <?php
-    $categories = get_categories('orderby=count&order=DSC&taxonomy=categoria_podcast');
+    $categories = get_categories('orderby=count&order=DSC&taxonomy=categoria_multimidia');
 
     foreach ($categories as $value) { ?>
       <?php
@@ -45,7 +45,7 @@
         $active = '';
       }
       ?>
-      <a href="<?php echo home_url('/');?>categoria_podcast/<?php echo $value->slug; ?>" class="categories__item <?php echo $active; ?>">
+      <a href="<?php echo home_url('/'); ?>categoria_multimidia/<?php echo $value->slug; ?>" class="categories__item <?php echo $active; ?>">
         <?php
         echo $value->name;
         ?>
@@ -60,24 +60,32 @@
   </div>
 
   <div class="mt-awe-64 row justify-content-center">
-    <div class="col-12 col-md-10 col-lg-8">
+    <div class="col-12 col-lg-10">
       <h2 class="text-gray-1 fz-21 fz-md-26 fw-light mb-awe-24">
-        Últimos podcasts
+        Últimos especiais
       </h2>
-      <?php
-      $args = array(
-        'post_type' => 'podcast',
-        'posts_per_page' => '6',
-        'paged'    => get_query_var('paged') ? get_query_var('paged') : 1
-      );
-      $the_query = new WP_Query($args);
-      ?>
-      <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-          <div class="podcast">
-            <?php the_content(); ?>
-          </div>
-      <?php endwhile;
-      else : endif; ?>
+      <div class="especiais">
+        <?php
+        $args = array(
+          'post_type' => 'post_esp_multimidia',
+          'posts_per_page' => '10',
+          'paged'    => get_query_var('paged') ? get_query_var('paged') : 1
+        );
+        $the_query = new WP_Query($args);
+        ?>
+        <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+            <a href="<?php the_permalink(); ?>" class="especial-multimidia__item d-flex flex-column gap-3 text-decoration-none">
+              <img class="" src="<?php the_post_thumbnail_url(); ?>" alt="">
+              <h3 class="fz-18 m-0">
+                <?php the_title(); ?>
+              </h3>
+              <p class="text-decoration-none text-dark-1 m-0">
+                <?php echo get_the_excerpt(); ?>
+              </p>
+            </a>
+        <?php endwhile;
+        else : endif; ?>
+      </div>
     </div>
   </div>
 

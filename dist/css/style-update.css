@@ -70,6 +70,20 @@
   text-transform: uppercase;
 }
 
+.especiais {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 273px;
+  grid-column-gap: 19px;
+  grid-row-gap: 19px;
+}
+
+.especial-multimidia__item img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
 /* web storys */
 
 .web-story {

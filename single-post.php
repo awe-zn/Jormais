@@ -10,7 +10,7 @@
                 <a href="<?php echo home_url('/'); ?>" class="link-gray-2">Home</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="<?php echo home_url('/'); ?>posts" class="link-gray-2">
+                <a href="<?php echo home_url('/posts'); ?>" class="link-gray-2">
                   Posts
                 </a>
               </li>
