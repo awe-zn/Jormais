@@ -7,17 +7,17 @@
 
   <div class="mt-awe-80 top-posts">
     <?php
-    $args3 = array(
+    $args_posts = array(
       'post_type' => 'post',
-      'posts_per_page' => '8'
+      'posts_per_page' => '8',
+      'category_not_in' => array(get_cat_ID('destaque'))
     );
-    $the_query = new WP_Query($args3);
+    $the_query = new WP_Query($args_posts);
     ?>
 
     <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
         <?php
         $postcat = get_the_category($post->ID);
-        if (!empty($postcat) && $postcat[0]->slug != 'destaque' && $postcat[0]->slug != 'especial-multimidia') {
         ?>
           <a href="<?php the_permalink(); ?>" class="top-posts__post">
             <img class="top-posts__post__image" src="<?php the_post_thumbnail_url(); ?>" alt="">
@@ -39,7 +39,7 @@
               </span>
             </div>
           </a>
-    <?php }
+    <?php
       endwhile;
     else : endif; ?>
   </div>

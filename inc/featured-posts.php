@@ -1,13 +1,13 @@
 <main class="container mt-awe-40">
   <div class="featured__posts">
     <?php
-    $args2 = array(
+    $args_featured_posts = array(
       'post_type' => 'post',
       'posts_per_page' => '3',
       'category_name' => 'destaque'
     );
 
-    $the_query = new WP_Query($args2);
+    $the_query = new WP_Query($args_featured_posts);
     $count = 0;
     ?>
     <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
