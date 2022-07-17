@@ -9,8 +9,8 @@
     <?php
     $args_posts = array(
       'post_type' => 'post',
-      'posts_per_page' => '8',
-      'category_not_in' => array(get_cat_ID('destaque'))
+      'posts_per_page' => '6',
+      'category__not_in' => array( 7, 103 ) 
     );
     $the_query = new WP_Query($args_posts);
     ?>
