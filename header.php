@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="container-fluid container-lg">
         <div>
-          <button class="btn p-0 me-awe-32">
+          <button type="button" class="btn p-0 me-awe-32" data-bs-toggle="modal" data-bs-target="#menuModal">
             <img src="<?php echo get_template_directory_uri(); ?>/dist/img/icons/menu.svg" alt="">
           </button>
           <a class="navbar-brand p-0" href="<?php echo home_url('/'); ?>">
@@ -48,3 +48,38 @@
       </div>
     </nav>
   </header>
+
+  <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModal" aria-hidden="true">
+    <div class="modal-dialog m-0">
+      <div class="modal-content bg-teal rounded-0 border-0" style="min-height: 100vh;">
+        <div class="modal-header">
+          <a class="navbar-brand p-0" href="<?php echo home_url('/'); ?>">
+            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo.png" width="156" alt="logo do site">
+          </a>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="menu" class="mt-awe-32">
+          <?php
+
+          $args = array(
+            'menu' => 'Menu Categorias',
+          );
+
+          wp_nav_menu($args)
+          ?>
+        </div>
+        <hr>
+        <div id="menu">
+          <?php
+
+          $args = array(
+            'menu' => 'Menu'
+          );
+
+          wp_nav_menu($args)
+          ?>
+        </div>
+
+      </div>
+    </div>
+  </div>
