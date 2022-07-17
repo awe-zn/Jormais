@@ -3,20 +3,57 @@
     COLUNA LIVRE
   </h2>
 
-  <div class="d-flex gap-awe-16">
+  <div class="d-flex flex-column gap-awe-24">
 
-    <a href="https://issuu.com/tabuufrn/docs/tabu_2020" target="_blank" class="magazine">
-      <img class="magazine__image" src="<?php echo get_template_directory_uri(); ?>/dist/img/magazine/revista_tabu_2020.jpg" alt="">
-    </a>
+    <?php
+    $args = array(
+      'role__not_in' => 'Subscriber',
+    );
+    $user_query = new WP_User_Query($args);
 
-    <a href="https://issuu.com/tabuufrn/docs/tabu_5ed" target="_blank" class="magazine">
-      <img class="magazine__image" src="<?php echo get_template_directory_uri(); ?>/dist/img/magazine/revista_tabu_2019.jpg" alt="">
-    </a>
+    if (!empty($user_query->get_results())) {
+      foreach ($user = $user_query->get_results() as $user) { ?>
+        <div class="d-flex gap-awe-32">
+          <div>
+            <img src="<?php echo get_avatar_url(get_the_author_ID(), array('size' => 100)); ?>" class="rounded-circle" alt="">
+          </div>
+          <div>
+            <?php
+            $author_posts_args = array(
+              'post_type' => 'post',
+              'posts_per_page' => '1',
+              'cat' => 103,
+              'author' => $user->ID
+            );
+
+            $author_posts_query = new WP_Query($author_posts_args);
+            ?>
+            <?php if ($author_posts_query->have_posts()) : while ($author_posts_query->have_posts()) : $author_posts_query->the_post(); ?>
+                <a href="<?php the_permalink(); ?>" class="text-decoration-none d-flex flex-column gap-awe-8 justify-content-center">
+                  <p class="text-dark-2 fz-16 text-capitalize m-0">
+                    <?php the_author(); ?>
+                  </p>
+                  <h3 class="fz-18 fw-bold text-teal m-0">
+                    <?php the_title(); ?>
+                  </h3>
+                  <div class="text-gray-3 fz-12">
+                    publicado em <?php echo get_the_date(); ?>
+                  </div>
+                </a>
+            <?php endwhile;
+            else : endif; ?>
+          </div>
+        </div>
+
+    <?php  }
+    } else {
+      echo 'No users found.';
+    } ?>
 
   </div>
 
   <div class="pt-awe-32">
-    <a href="https://issuu.com/coluna-livre" target="_blank" class="button-1">
+    <a href="<?php echo home_url('/coluna-livre'); ?>" class="button-1">
       Veja mais
     </a>
   </div>

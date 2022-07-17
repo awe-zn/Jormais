@@ -1,26 +1,55 @@
 <?php get_header() ?>
 
-<main class="container pt-awe-40">
-  <h1 class="text-dark-1 fz-26 fz-md-32 fw-extra-bold title-1 m-0">
-    Filtragem de posts pelo autor "<?php the_author(); ?>"
-  </h1>
+<div class="container fz-16 py-awe-40">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 d-flex gap-1">
+          <li class="breadcrumb-item">
+            <a href="<?php echo home_url('/'); ?>" class="link-gray-2">Home</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="<?php echo home_url('/coluna-livre'); ?>" class="link-gray-2">Colunas</a>
+          </li>
+          <li class="breadcrumb-item text-truncate active" aria-current="page">
+            <?php the_author(); ?>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+</div>
 
-  <div class="mt-awe-32 mb-awe-32 mb-md-2 mt-md-awe-12 row justify-content-end align-items-end gap-3 gap-md-0">
-    <div class="col-12 col-md-6 d-flex justify-content-md-end">
-      <?php dynamic_sidebar('busca'); ?>
+<main class="container pt-awe-40">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex flex-column align-items-center gap-awe-16">
+      <img class="rounded-circle mb-awe-16" src="<?php echo get_avatar_url(get_the_author_ID(), array('size' => 250)); ?>" alt="">
+      <div>
+        <p class="fz-18 fw-bold text-dark-2 text-capitalize mb-awe-16 px-awe-16">
+          <?php the_author(); ?>
+        </p>
+        <div class="bg-teal rounded w-100 pt-1"></div>
+      </div>
     </div>
   </div>
 
-  <div class="mt-awe-64 row justify-content-center">
+  <div class="my-awe-64 row justify-content-center">
     <div class="col-12 col-md-10 col-lg-8">
       <h2 class="text-gray-1 fz-21 fz-md-26 fw-light mb-awe-24">
-        Últimos posts de
-        <span class="fw-bold">
-          "<?php the_author(); ?>"
-        </span>
+        Últimos posts
       </h2>
-      <?php if (have_posts()) :
-        while (have_posts()) : the_post(); ?>
+
+      <?php
+      $author_posts_args = array(
+        'post_type' => 'post',
+        'cat' => 103,
+        'author' => get_the_author_ID(),
+      );
+
+      $author_posts_query = new WP_Query($author_posts_args);
+      ?>
+      <?php if ($author_posts_query->have_posts()) :
+        while ($author_posts_query->have_posts()) : $author_posts_query->the_post(); ?>
           <a href="<?php the_permalink(); ?>" class="d-block text-decoration-none border-top border-light-4 pt-awe-24">
             <div class="text-gray-2 fz-14 mb-awe-12">
               por
@@ -40,28 +69,6 @@
         endwhile;
       else : endif;
       ?>
-    </div>
-  </div>
-
-  <div class="row justify-content-center mt-awe-32">
-    <div class="col-12 col-md-10 col-lg-8">
-      <div class="border-top border-light-4 pt-awe-56">
-        <nav>
-          <ul class="pagination fz-21 lh-160 py-awe-24">
-            <?php
-            echo paginate_links(array(
-              'base' => str_replace(999999999, '%#%', get_pagenum_link(999999999)),
-              'format' => '?paged=%#%',
-              'current' => max(1, get_query_var('paged')),
-              'total' => $wp_query->max_num_pages,
-              'prev_next' => false,
-              'show_all' => false,
-              'mid_size' => 2,
-              'end_size' => 1
-            )); ?>
-          </ul>
-        </nav>
-      </div>
     </div>
   </div>
 </main>

@@ -38,7 +38,7 @@
         <div class="row">
           <div class="col-12 col-lg-2">
             <a href="<?php echo home_url('/author'); ?>/<?php echo $user->display_name; ?>" class="d-flex flex-column align-items-center gap-awe-16 text-decoration-none">
-              <img class="rounded-circle" src="<?php echo get_avatar_url($user->ID) ?>" width="150" height="150" alt="">
+              <img class="rounded-circle" src="<?php echo get_avatar_url($user->ID, array('size' => 150)); ?>" alt="">
               <p class="text-teal text-capitalize">
                 <?php echo $user->display_name; ?>
               </p>
