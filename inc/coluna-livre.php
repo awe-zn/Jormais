@@ -15,7 +15,7 @@
       foreach ($user = $user_query->get_results() as $user) { ?>
         <div class="d-flex gap-awe-32">
           <div>
-            <img src="<?php echo get_avatar_url(get_the_author_ID(), array('size' => 100)); ?>" class="rounded-circle" alt="">
+            <img src="<?php echo get_avatar_url($user->ID, array('size' => 100)); ?>" class="rounded-circle" alt="">
           </div>
           <div>
             <?php
