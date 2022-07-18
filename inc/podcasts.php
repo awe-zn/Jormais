@@ -12,7 +12,7 @@
   ?>
 
   <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
-      <div class="podcast">
+      <div class="podcast mb-awe-16">
         <?php the_content(); ?>
       </div>
   <?php

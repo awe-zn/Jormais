@@ -8,6 +8,7 @@
     <?php
     $args = array(
       'role__not_in' => 'Subscriber',
+       'number' => 2
     );
     $user_query = new WP_User_Query($args);
 
@@ -22,7 +23,7 @@
             $author_posts_args = array(
               'post_type' => 'post',
               'posts_per_page' => '1',
-              'cat' => 103,
+              'cat' => get_category_by_slug('coluna-livre')->term_id,
               'author' => $user->ID
             );
 
