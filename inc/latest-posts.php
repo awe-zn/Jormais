@@ -10,7 +10,7 @@
     $args_posts = array(
       'post_type' => 'post',
       'posts_per_page' => '6',
-      'category__not_in' => array( 7, 103 ) 
+      'category__not_in' => array( get_category_by_slug('coluna-livre')->term_id, get_category_by_slug('destaque')->term_id ) 
     );
     $the_query = new WP_Query($args_posts);
     ?>
