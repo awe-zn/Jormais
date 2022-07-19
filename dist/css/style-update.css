@@ -153,7 +153,7 @@
 
 .videos {
   display: grid;
-  grid: 300px 300px / 1fr 1fr;
+  grid: 300px / 1fr 1fr;
   gap: 21px 24px;
 }
 

@@ -45,8 +45,15 @@
     $the_query = new WP_Query($args);
     ?>
     <?php if ($the_query->have_posts()) : while ($the_query->have_posts()) : $the_query->the_post(); ?>
+
+        <?php
+          $video_link = get_field('link');
+          $video_id = str_replace('https://youtu.be/', "", $video_link);
+          $video_image_link = 'https://img.youtube.com/vi/' . $video_id . '/maxresdefault.jpg';
+        ?>
+
         <a href="<?php the_field('link'); ?>" target="_blank" class="video destaque">
-          <img src="<?php the_field('imagem_da_capa'); ?>" class="img-fluid" alt="">
+          <img src="<?php echo $video_image_link; ?>" class="img-fluid" alt="">
           <div class="filter"></div>
           <div class="play"></div>
           <div class="title text-truncate" title="<?php echo get_the_title(); ?>">
