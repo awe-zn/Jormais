@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 col-md-4 col-lg-3">
         <a href="<?php echo home_url('/'); ?>">
-          <img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo-footer.png" class="img-fluid w-100" alt="Logo jormais">
+          <img src="<?php echo get_template_directory_uri(); ?>/dist/img/logo.png" class="img-fluid w-100" alt="Logo jormais">
         </a>
         <div class="d-flex gap-awe-32 justify-content-center pt-awe-32">
           <a href="https://twitter.com/Jormais_portal" target="_blank" title="twitter">
