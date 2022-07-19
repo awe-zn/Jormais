@@ -7,7 +7,7 @@
   $the_best_posts_args = array(
     'post_type' => 'post',
     'posts_per_page' => '4',
-    'orderby' => 'rand'
+    'orderby' => 'relevance'
   );
   $the_query = new WP_Query($the_best_posts_args);
   ?>

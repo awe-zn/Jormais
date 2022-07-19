@@ -42,7 +42,7 @@
       <?php
       $author_posts_args = array(
         'post_type' => 'post',
-        'cat' => 103,
+        'cat' => get_category_by_slug('coluna-livre')->term_id,
         'author' => get_the_author_ID(),
       );
 

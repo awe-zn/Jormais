@@ -14,7 +14,7 @@
           </a>
         </div>
       </div>
-      <div class="col-12 col-md-4 col-lg-3 offset-lg-1 d-flex flex-column align-items-center my-awe-32 my-md-0">
+      <div class="col-12 col-md-4 col-lg-4 offset-lg-1 d-flex flex-column align-items-center my-awe-32 my-md-0">
         <span class="text-white fw-bold fz-18 text-uppercase">APOIO INSTITUCIONAL</span>
         <a href="https://www.ufrn.br/" target="_blank">
           <img src="<?php echo get_template_directory_uri(); ?>/dist/img/ufrn-logo-light.png" alt="Logo ufrn">
@@ -23,13 +23,18 @@
           <img src="<?php echo get_template_directory_uri(); ?>/dist/img/icons/logo-decom-light.svg" alt="Logo decom">
         </a>
       </div>
-      <div class="col-12 col-md-4 col-lg-4 offset-lg-1 text-center text-md-start">
+      <div class="col-12 col-md-4 col-lg-3 offset-lg-1 text-center text-md-start">
         <span class="text-white fw-bold fz-18 text-uppercase">SOBRE JORMAIS</span>
-        <nav class="d-flex flex-column pt-awe-16 gap-awe-16">
-          <a href="" class="text-uppercase text-white fz-16 fw-light text-decoration-none">quem somos</a>
-          <a href="" class="text-uppercase text-white fz-16 fw-light text-decoration-none">contato</a>
-          <a href="" class="text-uppercase text-white fz-16 fw-light text-decoration-none">envie uma matéria</a>
-        </nav>
+        <div id="menu" class="mt-awe-16">
+          <?php
+            $args = array(
+              'menu' => 'Menu Footer',
+              'menu_class' => 'p-0',
+            );
+
+            wp_nav_menu($args)
+          ?>
+        </div>
       </div>
     </div>
   </div>

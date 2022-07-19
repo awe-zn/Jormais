@@ -35,9 +35,23 @@
 
     if (!empty($user_query->get_results())) {
       foreach ($user_query->get_results() as $user) { ?>
-        <div class="row">
+
+        <?php
+        $author_posts_args = array(
+          'post_type' => 'post',
+          'posts_per_page' => '3',
+          'cat' => get_category_by_slug('coluna-livre')->term_id,
+          'author' => $user->ID
+        );
+
+        $author_posts_query = new WP_Query($author_posts_args);
+        ?>
+
+        <?php 
+        if($author_posts_query->have_posts()) { ?>
+          <div class="row">
           <div class="col-12 col-lg-2">
-            <a href="<?php echo home_url('/author'); ?>/<?php echo $user->display_name; ?>" class="d-flex flex-column align-items-center gap-awe-16 text-decoration-none">
+            <a href="<?php echo home_url('/author'); ?>/<?php echo $user->user_login; ?>" class="d-flex flex-column align-items-center gap-awe-16 text-decoration-none">
               <img class="rounded-circle" src="<?php echo get_avatar_url($user->ID, array('size' => 150)); ?>" alt="">
               <p class="text-teal text-capitalize">
                 <?php echo $user->display_name; ?>
@@ -47,16 +61,6 @@
 
           <div class="col-12 col-lg-10 my-awe-32 my-lg-0">
             <div class="row gap-awe-32 gap-md-0">
-              <?php
-              $author_posts_args = array(
-                'post_type' => 'post',
-                'posts_per_page' => '3',
-                'cat' => get_category_by_slug('coluna-livre')->term_id,
-                'author' => $user->ID
-              );
-
-              $author_posts_query = new WP_Query($author_posts_args);
-              ?>
               <?php if ($author_posts_query->have_posts()) : while ($author_posts_query->have_posts()) : $author_posts_query->the_post(); ?>
                   <div class="col-12 col-md-6 col-lg-4">
                     <a href="<?php the_permalink(); ?>" class="text-decoration-none post-coluna-livre">
@@ -74,11 +78,15 @@
           </div>
 
           <div class="col-12 d-flex justify-content-end">
-            <a href="<?php echo home_url('/author'); ?>/<?php echo $user->display_name; ?>" class="text-decoration-none">
+            <a href="<?php echo home_url('/author'); ?>/<?php echo $user->user_login; ?>" class="text-decoration-none">
               Ver todas as colunas
             </a>
           </div>
         </div>
+        <?php 
+        }
+        ?>
+        
     <?php  }
     } else {
       echo 'No users found.';
