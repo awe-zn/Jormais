@@ -51,7 +51,7 @@
               $author_posts_args = array(
                 'post_type' => 'post',
                 'posts_per_page' => '3',
-                'cat' => 103,
+                'cat' => get_category_by_slug('coluna-livre')->term_id,
                 'author' => $user->ID
               );
 
